@@ -1,0 +1,143 @@
+/* Kalandra National Statistics Office — original design.
+   Deep teal + warm amber on paper white; system type stack, no web fonts. */
+
+:root {
+  --teal: #0e6b6b;
+  --teal-dark: #0a4f4f;
+  --amber: #e8a13a;
+  --ink: #24343a;
+  --muted: #5b6b6b;
+  --line: #dfe6e6;
+  --paper: #fbfaf7;
+  --card: #ffffff;
+  --soft: #eef4f3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+
+.site-header {
+  background: var(--teal-dark);
+  color: #fff;
+  padding: 22px 0 0;
+}
+.brand { font-size: 1.35rem; font-weight: 700; margin: 0; letter-spacing: .01em; }
+.brand .mark {
+  display: inline-block;
+  width: 34px; height: 34px; line-height: 34px; text-align: center;
+  background: var(--amber); color: var(--teal-dark);
+  border-radius: 6px; margin-right: 8px; font-weight: 800;
+}
+.tagline { margin: 6px 0 0; color: #cfe3e0; font-size: .95rem; }
+
+nav {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  padding: 14px 20px 0;
+}
+nav a {
+  color: #dcebe8; text-decoration: none; font-weight: 600;
+  padding: 8px 12px; border-radius: 8px 8px 0 0; font-size: .95rem;
+}
+nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
+nav a.active { background: var(--paper); color: var(--teal-dark); }
+
+main { padding: 28px 20px 40px; }
+
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 8px; color: var(--teal-dark); }
+h2 { font-size: 1.2rem; margin: 0 0 10px; color: var(--teal-dark); }
+h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0 0 6px; }
+.lede { font-size: 1.08rem; color: #3c4c51; max-width: 72ch; }
+
+a { color: var(--teal); }
+a:hover { color: var(--teal-dark); }
+
+.kpis {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin: 20px 0;
+}
+.kpi {
+  background: var(--card); border: 1px solid var(--line);
+  border-left: 4px solid var(--amber);
+  border-radius: 10px; padding: 14px 16px;
+}
+.kpi .big { font-size: 1.6rem; font-weight: 750; margin: 0; color: var(--teal-dark); }
+.kpi .delta { margin: 2px 0 8px; font-weight: 600; color: #2c5a3c; }
+.kpi .source { margin: 0; }
+
+.grid2 {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin: 14px 0;
+}
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; padding: 18px; margin: 14px 0;
+  overflow-x: auto;
+}
+.grid2 .card { margin: 0; }
+
+canvas { width: 100%; display: block; }
+
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; }
+tr.hl td { background: var(--soft); font-weight: 600; }
+
+.source { font-size: .82rem; color: var(--muted); margin: 10px 0 0; }
+.note { font-size: .92rem; color: var(--muted); }
+
+.controls {
+  display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+  background: var(--soft); border: 1px solid var(--line);
+  border-radius: 10px; padding: 12px 16px; margin: 16px 0;
+}
+.picker { font-weight: 600; }
+.picker select, .picker input {
+  font: inherit; padding: 6px 8px; border: 1px solid #b9c6c6;
+  border-radius: 6px; background: #fff; color: var(--ink);
+}
+.toggle { display: inline-flex; border: 1px solid #b9c6c6; border-radius: 6px; overflow: hidden; }
+.toggle button {
+  font: inherit; font-weight: 600; padding: 6px 12px;
+  border: 0; background: #fff; color: var(--teal); cursor: pointer;
+}
+.toggle button.active { background: var(--teal); color: #fff; }
+
+.tabs { display: flex; gap: 6px; margin: 12px 0; flex-wrap: wrap; }
+.tabs button {
+  font: inherit; font-weight: 600; padding: 7px 14px; cursor: pointer;
+  border: 1px solid var(--teal); border-radius: 20px;
+  background: #fff; color: var(--teal);
+}
+.tabs button.active { background: var(--teal); color: #fff; }
+
+.releases { list-style: none; padding: 0; margin: 0; }
+.releases li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.releases li:last-child { border-bottom: 0; }
+.releases span { color: var(--muted); }
+
+footer {
+  border-top: 2px solid var(--teal);
+  padding: 18px 20px 28px;
+  color: var(--muted); font-size: .9rem;
+}
+
+@media (max-width: 720px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .grid2 { grid-template-columns: 1fr; }
+  h1 { font-size: 1.55rem; }
+  nav a { padding: 8px 9px; font-size: .9rem; }
+  .brand { font-size: 1.15rem; }
+}
+@media (max-width: 460px) {
+  .kpis { grid-template-columns: 1fr; }
+}
